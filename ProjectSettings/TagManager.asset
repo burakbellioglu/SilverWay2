@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - Weapon
+  - Enemy
+  - Dagger
+  - Sword
+  - Spear
+  - Bow
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground_Back_3
+    uniqueID: 230008241
+    locked: 0
+  - name: Ground_Back_2
+    uniqueID: 2578253359
+    locked: 0
+  - name: Ground_Back_1
+    uniqueID: 3038359323
+    locked: 0
+  - name: Ground
+    uniqueID: 3807440273
+    locked: 0
+  - name: Characters
+    uniqueID: 2267190371
+    locked: 0
+  - name: Ground_Front_1
+    uniqueID: 2718529795
+    locked: 0
+  - name: Ground_Front_2
+    uniqueID: 1257280213
+    locked: 0
+  - name: Ground_Front_3
+    uniqueID: 2404100099
+    locked: 0
+  - name: Camera Effect
+    uniqueID: 1491453229
+    locked: 0
