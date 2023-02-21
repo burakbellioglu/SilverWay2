@@ -4,18 +4,15 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-
+    [Header("Atanacak degerler")]
     public float damage;
-
     public string targetTag;
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(targetTag))
         {
-            Debug.Log("Düþman ismi = " + collision.name);
-            collision.GetComponent<Health>().TakeDamage(damage);
+            collision.GetComponent<Health>().TakeDamage(damage,transform.root.position);
         }
     }
 

@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 { 
-    //AKTÝF SORUNLAR-*-
-    //Ayný saldýrý türü bazen arka arkaya saldýrabiliyor.
-    //Silahlara daha iyi collider yapmak için child objelerine collider eklenebilir.
     
     //Componentler
     private Animator anim;
     private PlayerController controller;
 
     //Yerel degiskenler
-    string activeAttack;
-    private bool isAttacking = false;
-
-    //Degisken atamalarý
-    public string[] LastAttacks = new string[2];
+    public bool isAttacking = false; //Karakterin dönme hareketi ve hareket hizi icin kullanýlýr. belirli bir sure fight icinde hareketi yavaslat.  
     public GameObject weaponSlot;
 
     [Header("Particle atamalarý")]
     public ParticleSystem[] cutParticles;
     public ParticleSystem[] thrustParticles;
+    public ParticleSystem[] comboParticles;
+    public ParticleSystem[] comboSwordParticles;
+
+    [Header("Kombo sistemi")]
+    private bool attack1 = false;
+    private bool attack2 = false;
+    private bool isCombo = false;
 
     //NOT!!!!
     //1-Bicak, 2-Kilic, 3-Mizrak
@@ -38,128 +38,85 @@ public class PlayerCombat : MonoBehaviour
    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F) && (!isAttacking || LastAttacks[0] != "attack1")) //Attack 1
+
+        //1.Saldiri turu
+        if (Input.GetKeyDown(KeyCode.F) &&  !isCombo && !attack1)
         {
             //Animasyon
-            activeAttack = "attack1";
-            anim.SetTrigger(activeAttack);
+            anim.SetTrigger("attack1");
 
-            //Karakterin yüzü ne tarafta? ona göre particle yönleri degisecek
-            int deger;
-            if (controller.isFacingRight)
-                deger = 1;
-            else
-                deger = -1;
+            Attack();
 
+            StartCoroutine(AttackDelay(1)); //Ayný saldýrý turu icin bekleme suresi.
 
-            //Particle           
-            switch (FindChildWithTag("Weapon").tag) //Silahý bul ardýndan colliderini bul ve hangi türse o tagi bul
-            {
-
-                case "Dagger":
-                    var myObject = Instantiate(cutParticles[0], FindChildWithTag("Weapon").transform.parent.position, cutParticles[0].transform.rotation);                   
-                    myObject.transform.parent = FindChildWithTag("Weapon").transform.parent;
-
-                    //Oluþmuþ partical objelerinin scale degerlerini duzelt (Bazý objelerin scale ile oynandýgý icin ayný goruntu olusmyur).
-                    myObject.transform.localScale = new Vector3(deger, 1, 1);
-
-                    break;
-                case "Sword":
-                    var myObject1 = Instantiate(cutParticles[1], new Vector2(FindChildWithTag("Weapon").transform.parent.position.x, FindChildWithTag("Weapon").transform.parent.position.y + 2) , cutParticles[0].transform.rotation);
-                    myObject1.transform.parent = FindChildWithTag("Weapon").transform.parent;
-
-                    myObject1.transform.localScale = new Vector3(deger, 1, 1);
-                    break;
-                case "Spear":
-                    var myObject2 = Instantiate(cutParticles[2], new Vector2(FindChildWithTag("Weapon").transform.parent.position.x, FindChildWithTag("Weapon").transform.parent.position.y + 2), cutParticles[0].transform.rotation);
-                    myObject2.transform.parent = FindChildWithTag("Weapon").transform.parent;
-
-                    myObject2.transform.localScale = new Vector3(deger, 1, 1);
-                    break;
+            //Eger kombo vurusu ise yani 2. saldiridan sonra 0.5 saniye icerisinde ilk saldiriyi baslatmissa
+            if (attack2)
+            {             
+                var myObject = Instantiate(comboParticles[0], transform.position, comboParticles[0].transform.rotation);
+                myObject.transform.parent = transform;
+                
+                StartCoroutine(Combo("attack3")); //Attack 3 animasyonuna ait comboyu calistir.
             }
 
-           
-
-
-            FindChildWithTag("Weapon").GetComponent<BoxCollider2D>().enabled = true; //Silah hasar verebilir.
-
-            //Listeye son attacký atama
-            LastAttacks[1] = LastAttacks[0];
-            LastAttacks[0] = activeAttack;
-
-            
-            StartCoroutine(Attack()); //Ayný saldýrý turu icin bekleme suresi.
         }
 
-        if (Input.GetKeyDown(KeyCode.G) && (!isAttacking || LastAttacks[0] != "attack2")) //Attack 2
+        //2.Saldiri turu
+        if (Input.GetKeyDown(KeyCode.G)  && !isCombo && !attack2)
         {
-            activeAttack = "attack2";
-            anim.SetTrigger(activeAttack);
+            //Animasyon
+            anim.SetTrigger("attack2");
 
-            //Karakterin yüzü ne tarafta? ona göre particle yönleri degisecek
-            int deger;
-            if (controller.isFacingRight)
-                deger = 1;
-            else
-                deger = -1;
+            Attack();
 
-            //Particle           
+            StartCoroutine(AttackDelay(2)); //Ayný saldýrý turu icin bekleme suresi.
 
-            switch (FindChildWithTag("Weapon").tag) //Silaha göre particle
+            //Eger kombo vurusu ise yani 1. saldiridan sonra 0.5 saniye icerisinde ilk saldiriyi baslatmissa
+            if (attack1)
             {
-                case "Dagger":
-                    var myObject = Instantiate(thrustParticles[0], FindChildWithTag("Weapon").transform.parent.position, thrustParticles[0].transform.rotation);
-                    myObject.transform.parent = FindChildWithTag("Weapon").transform.parent;
+                var myObject = Instantiate(comboParticles[1], transform.position, comboParticles[1].transform.rotation);
+                myObject.transform.parent = transform;
 
-                    myObject.transform.localScale = new Vector3(deger, 1, 1);
-                    break;
-                case "Sword":
-                    var myObject1 = Instantiate(thrustParticles[1], new Vector2(FindChildWithTag("Weapon").transform.parent.position.x, FindChildWithTag("Weapon").transform.parent.position.y + 2), thrustParticles[0].transform.rotation);
-                    myObject1.transform.parent = FindChildWithTag("Weapon").transform.parent;
-
-                    myObject1.transform.localScale = new Vector3(deger, 1, 1);
-                    break;
-                case "Spear":
-                    var myObject2 = Instantiate(thrustParticles[2], new Vector2(FindChildWithTag("Weapon").transform.parent.position.x, FindChildWithTag("Weapon").transform.parent.position.y + 2), thrustParticles[0].transform.rotation);
-                    myObject2.transform.parent = FindChildWithTag("Weapon").transform.parent;
-
-                    myObject2.transform.localScale = new Vector3(deger, 1, 1);
-                    break;
+                StartCoroutine(Combo("attack4")); //Attack 4 animasyonuna ait comboyu calistir.
             }
 
-
-
-            FindChildWithTag("Weapon").GetComponent<BoxCollider2D>().enabled = true; //Silah hasar verebilir.
-
-            LastAttacks[1] = LastAttacks[0];
-            LastAttacks[0] = activeAttack;
-
-            StartCoroutine(Attack()); //Ayný saldýrý turu icin bekleme suresi.
         }
 
-        if (Input.GetKeyDown(KeyCode.H) && (!isAttacking || LastAttacks[0] != "attack3")) //Attack 3
-        {
-            activeAttack = "attack3";
-            anim.SetTrigger(activeAttack);
+    }
 
-            //Karakterin yüzü ne tarafta? ona göre particle yönleri degisecek
-            int deger;
-            if (controller.isFacingRight)
-                deger = 1;
-            else
-                deger = -1;
+    #region Attack Fonksiyonlari
 
-            var myObject = Instantiate(cutParticles[0], FindChildWithTag("Weapon").transform.parent.position, cutParticles[0].transform.rotation);
-            myObject.transform.parent = FindChildWithTag("Weapon").transform.parent;
+    private IEnumerator Combo(string attackName)
+    {
+        isCombo = true;
 
-            myObject.transform.localScale = new Vector3(deger, 1, 1);
+        yield return new WaitForSeconds(0.3f);
 
-            LastAttacks[1] = LastAttacks[0];
-            LastAttacks[0] = activeAttack;
+        //Animasyon
+        anim.SetTrigger(attackName);
+        Attack();
+        StartCoroutine(AttackDelay(3)); //Ayný saldýrý turu icin bekleme suresi.
 
-            StartCoroutine(Attack()); //Ayný saldýrý turu icin bekleme suresi.
-        }
+        var myObject = Instantiate(comboSwordParticles[0], FindChildWithTag("Weapon").transform.parent.position, comboSwordParticles[0].transform.rotation);
+        myObject.transform.parent = FindChildWithTag("Weapon").transform.parent;
 
+
+        yield return new WaitForSeconds(1);
+        isCombo = false;
+    }
+
+    private void Attack() //Particle olustur ve silahin colliderini aktiflestir.
+    {
+        //Karakterin yüzü ne tarafta? ona göre particle yönu belirlenecek.
+        int deger;
+        if (controller.isFacingRight)
+            deger = 1;
+        else
+            deger = -1;
+
+        //Particle           
+        SpawnParticle(deger);
+
+        FindChildWithTag("Weapon").GetComponent<BoxCollider2D>().enabled = true; //Silah hasar verebilir.
     }
 
     private GameObject FindChildWithTag(string tag) //Aktif silahýn Collider objesini bul
@@ -180,17 +137,78 @@ public class PlayerCombat : MonoBehaviour
         return child.transform.Find("Collider").gameObject;
     }
 
-    IEnumerator Attack() //Saldýrmak icin beklet
+    IEnumerator AttackDelay(int attackNo) //Saldýrmak icin beklet ve hangi attack ise atamasini yap.
     {
+        switch (attackNo)
+        {
+            case 1:
+                attack1 = true;
+                break;
+            case 2:
+                attack2 = true;
+                break;
+        }
+
         isAttacking = true;
-        yield return new WaitForSeconds(0.65f);
+
+        yield return new WaitForSeconds(0.30f);
+
         isAttacking = false;
+
+        yield return new WaitForSeconds(0.35f);
+
+        switch (attackNo)
+        {
+            case 1:
+                attack1 = false;
+                break;
+            case 2:
+                attack2 = false;
+                break;
+        }
+
+       
+
+    }
+
+    private void SpawnParticle(int deger)
+    {
+        switch (FindChildWithTag("Weapon").tag) //Silahý bul ardýndan colliderini bul ve hangi türse o tagi bul
+        {
+
+            case "Dagger":
+                var myObject = Instantiate(cutParticles[0], FindChildWithTag("Weapon").transform.parent.position, cutParticles[0].transform.rotation);
+                myObject.transform.parent = FindChildWithTag("Weapon").transform.parent;
+
+                //Oluþmuþ partical objelerinin scale degerlerini duzelt (Bazý objelerin scale ile oynandýgý icin ayný goruntu olusmyur).
+                myObject.transform.localScale = new Vector3(deger, 1, 1);
+
+                break;
+            case "Sword":
+                var myObject1 = Instantiate(cutParticles[1], new Vector2(FindChildWithTag("Weapon").transform.parent.position.x, FindChildWithTag("Weapon").transform.parent.position.y + 2), cutParticles[0].transform.rotation);
+                myObject1.transform.parent = FindChildWithTag("Weapon").transform.parent;
+
+                myObject1.transform.localScale = new Vector3(deger, 1, 1);
+                break;
+            case "Spear":
+                var myObject2 = Instantiate(cutParticles[2], new Vector2(FindChildWithTag("Weapon").transform.parent.position.x, FindChildWithTag("Weapon").transform.parent.position.y + 2), cutParticles[0].transform.rotation);
+                myObject2.transform.parent = FindChildWithTag("Weapon").transform.parent;
+
+                myObject2.transform.localScale = new Vector3(deger, 1, 1);
+                break;
+        }
     }
 
     public void FinishAttack() //Saldiriyi bitir collider kapat
     {
         FindChildWithTag("Weapon").GetComponent<BoxCollider2D>().enabled = false;
     }
+
+    #endregion
+
+
+
+
 
 
 }

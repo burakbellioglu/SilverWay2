@@ -609,6 +609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  bloodParticle: {fileID: 812007911627263436, guid: a7bf3eb3215bea841a109b7d0d58ea95, type: 3}
 --- !u!1 &5873872348865486704
 GameObject:
   m_ObjectHideFlags: 0
@@ -4381,6 +4382,14 @@ PrefabInstance:
     - target: {fileID: 5263505881944489002, guid: d4f44ea04d1fecb42b43bf18209f85f8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 137.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718720110335784885, guid: d4f44ea04d1fecb42b43bf18209f85f8, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718720110335784885, guid: d4f44ea04d1fecb42b43bf18209f85f8, type: 3}
+      propertyPath: targetTag
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4f44ea04d1fecb42b43bf18209f85f8, type: 3}

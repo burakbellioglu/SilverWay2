@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     //Componentler
     private Rigidbody2D rb;
     private Animator anim;
+    private PlayerCombat playerCombat;
 
     [Header("Degisken degerleri")]
 
@@ -37,15 +38,21 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        playerCombat = GetComponent<PlayerCombat>();
 
     }
 
     void FixedUpdate()
     {
         moveInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(speed * moveInput, rb.velocity.y);
 
-        Friction();
+        if(playerCombat.isAttacking)
+            rb.velocity = new Vector2(speed/2 * moveInput, rb.velocity.y);
+        else
+            rb.velocity = new Vector2(speed * moveInput, rb.velocity.y);
+
+
+            Friction();
     }
 
     private void Update()
@@ -69,10 +76,11 @@ public class PlayerController : MonoBehaviour
         }
 
         //Karakteri döndürme
-        Flip();
+        if(!playerCombat.isAttacking)
+            Flip();
 
         //Hareket animasyonu
-        if(moveInput == 0)
+        if (moveInput == 0)
         {
             anim.SetBool("isRunning", false);
             isRunning = false;

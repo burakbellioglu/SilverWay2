@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     private bool isRunning = true; //Kosuyor
     private bool isFollowing = false; //Takip ediyor
     private bool isWaiting = false; // Bekliyor
+    private bool isCatching = true; //Karakteri 10 saniyede bir calisan tespit etme. Sadece fonksiyonda kontrol olmasi icin ilk deger true.
 
     public Transform groundCheck;
 
@@ -39,12 +40,11 @@ public class EnemyAI : MonoBehaviour
     public GameObject cutParticle;
     public GameObject thrustParticle;
     public GameObject runParticle;
+    public GameObject catchLogo;
 
 
-    //Oncelik ve hareket mekanizmasi
-
-    //Eger dusmani gorursen pesinden git (patrol engel veya diger kodlarin hicbirine girme!)
-    //Dusman yoksa normal harekete devam et - Engel gorursen bekle ve yon degistir.
+    //Tespit ettiginde yani normal hareketinden ciktiginda unlem isaretini cikar
+    //Her seferinde cikmasin ama
 
 
 
@@ -60,11 +60,11 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-
+        
         //Raycast (Tespit etme)
 
         RaycastHit2D hit_up = Physics2D.Linecast(rayStart.position, new Vector2(rayStart.position.x + rayDistanceFront, rayStart.position.y));
-        RaycastHit2D hit_down = Physics2D.Linecast(rayStart.position, new Vector2(rayStart.position.x + rayDistanceFront, rayStart.position.y-2));
+        RaycastHit2D hit_down = Physics2D.Linecast(new Vector2(rayStart.position.x,rayStart.position.y - 0.2f) , new Vector2(rayStart.position.x + rayDistanceFront, rayStart.position.y-2));
         RaycastHit2D hit_back = Physics2D.Linecast(rayStart_back.position, new Vector2(rayStart_back.position.x + rayDistanceBack, rayStart_back.position.y));
         RaycastHit2D checkWay = Physics2D.Linecast(rayStart_checkWay.position, new Vector2(rayStart_checkWay.position.x + rayDistanceCheckWay, rayStart_checkWay.position.y));
 
@@ -73,6 +73,9 @@ public class EnemyAI : MonoBehaviour
         //Raycast Front tespit ederse
         if (hit_up.collider != null && (hit_up.collider.gameObject.CompareTag("Player")) || hit_down.collider != null && (hit_down.collider.gameObject.CompareTag("Player")))
         {
+            //Tespit edildi unlem isaretini spawnla.
+            StartCoroutine(SpawnCatchLogo());
+
             isFollowing = true;
             isWaiting = false;
 
@@ -130,7 +133,7 @@ public class EnemyAI : MonoBehaviour
                 }
 
                 //Eger karakter dibinde ise saldiri icin uygun pozisyona gec.
-                if (Vector2.Distance(gameObject.transform.position, target.position) < minDistance - 0.5f)
+                if (Vector2.Distance(gameObject.transform.position, target.position) < minDistance - 0.3f)
                 {
                     gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, target.position, -speed * Time.deltaTime);
                 }
@@ -199,6 +202,7 @@ public class EnemyAI : MonoBehaviour
 
     }
 
+
     #region Saldiri
     private IEnumerator Attack_1()
     {       
@@ -256,7 +260,6 @@ public class EnemyAI : MonoBehaviour
 
         StartCoroutine(AttackWait()); //Ayný saldýrý turu icin bekleme suresi.
 
-        Debug.Log("attack - 2");
     }
 
     private IEnumerator AttackWait()
@@ -266,7 +269,7 @@ public class EnemyAI : MonoBehaviour
     }
     #endregion
 
-    #region Movement Particle
+    #region Particle
     IEnumerator SpawnRunParticle()
     {
         if (coroutineAllowed_running)
@@ -282,6 +285,20 @@ public class EnemyAI : MonoBehaviour
 
     }
 
+    IEnumerator SpawnCatchLogo()
+    {
+        if (isCatching)
+        {
+            isCatching = false;
+            //Tespit edildi unlem isaretini cikar.
+            var myObject = Instantiate(catchLogo, new Vector2(transform.position.x + rayDistanceCheckWay / 2.8f /*Su an degeri -1 ondan dolayi! */, transform.position.y + 3.2f), Quaternion.identity);
+            myObject.transform.parent = gameObject.transform.GetChild(0).parent;
+            yield return new WaitForSeconds(10);
+            isCatching = true;
+        }
+        
+    }
+
     #endregion
 
 
@@ -289,6 +306,7 @@ public class EnemyAI : MonoBehaviour
     //Sureli hareket
     private IEnumerator MovementFlip()
     {
+        
         yield return new WaitForSeconds(Random.Range(6,12));
 
         if(!isFollowing && !isWaiting) //Takip etmiyorsa ve beklemiyorsa yani patrolde ise
@@ -340,10 +358,12 @@ public class EnemyAI : MonoBehaviour
 
     }
 
+
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawLine(rayStart.position, new Vector2(rayStart.position.x + rayDistanceFront, rayStart.position.y));
-        Gizmos.DrawLine(rayStart.position, new Vector2(rayStart.position.x + rayDistanceFront, rayStart.position.y-2));
+        Gizmos.DrawLine(new Vector2(rayStart.position.x, rayStart.position.y - 0.2f), new Vector2(rayStart.position.x + rayDistanceFront, rayStart.position.y - 2));
         Gizmos.DrawLine(rayStart_back.position, new Vector2(rayStart_back.position.x + rayDistanceBack, rayStart_back.position.y));
         Gizmos.DrawLine(rayStart_checkWay.position, new Vector2(rayStart_checkWay.position.x + rayDistanceCheckWay, rayStart_checkWay.position.y));
 
