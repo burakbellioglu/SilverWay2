@@ -20,6 +20,9 @@ public class Health : MonoBehaviour
     public GameObject xp;
     public GameObject bigXip;
 
+    [Header("Vucut Parcalari")]
+    public List<GameObject> parcalar;
+
 
     private void Start()
     {
@@ -82,6 +85,11 @@ public class Health : MonoBehaviour
         for (int i = 0; i < Random.Range(0, 2); i++) //Buyuk xp spawn.
         {
             Instantiate(bigXip, transform.position, xp.transform.rotation);
+        }
+
+        for (int i = 0; i < 2; i++) //Vucut parcarlai
+        {
+            Instantiate(parcalar[Random.Range(0,parcalar.Count)], new Vector2( transform.position.x + i, transform.position.y + i), Quaternion.identity);
         }
 
 

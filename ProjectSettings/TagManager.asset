@@ -12,6 +12,7 @@ TagManager:
   - Spear
   - Bow
   - Engel
+  - Light
   layers:
   - Default
   - TransparentFX
@@ -63,6 +64,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 3807440273
+    locked: 0
+  - name: In
+    uniqueID: 2686021561
     locked: 0
   - name: Characters
     uniqueID: 2267190371

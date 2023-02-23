@@ -10,7 +10,7 @@ public class XP : MonoBehaviour
     void Start()
     {
         //Baslangicta saga sola dagil
-        int rndm = Random.Range(0, 1);
+        int rndm = Random.Range(0, 2);
         if (rndm == 0)
             rb.AddForce(Vector2.right * Random.Range(150,350));
         else

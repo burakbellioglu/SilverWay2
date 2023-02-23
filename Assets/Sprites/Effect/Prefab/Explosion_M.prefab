@@ -4778,7 +4778,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: bb6edba4e0b30f14fbc98ff26985f7c9, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4796,9 +4795,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 150
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -9661,7 +9660,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0834f6eddd125f64f9b8f32906a1f3b6, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9679,9 +9677,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 150
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -14463,7 +14461,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: d0ad2dedaeb5a97498ef89d4c5ab8bf8, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14481,9 +14478,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 151
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -19265,7 +19262,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: d0ad2dedaeb5a97498ef89d4c5ab8bf8, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19283,9 +19279,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 151
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -24067,7 +24063,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: d0ad2dedaeb5a97498ef89d4c5ab8bf8, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24085,9 +24080,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 151
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -28860,7 +28855,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c04e7ee818ed4747bc01811e3f0d0d0, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28878,9 +28872,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 151
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -33689,7 +33683,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: bb6edba4e0b30f14fbc98ff26985f7c9, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -33707,9 +33700,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 150
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -38410,7 +38403,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 61213168a1ae41e44a6521e73cb53347, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -38428,9 +38420,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 150
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -43239,7 +43231,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: bb6edba4e0b30f14fbc98ff26985f7c9, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -43257,9 +43248,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 150
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -48032,7 +48023,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c04e7ee818ed4747bc01811e3f0d0d0, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -48050,9 +48040,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 151
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -48094,6 +48084,7 @@ GameObject:
   - component: {fileID: 4110347198187740}
   - component: {fileID: 198842803310023018}
   - component: {fileID: 199719397430445690}
+  - component: {fileID: 3511750400189908964}
   m_Layer: 0
   m_Name: Explosion_M
   m_TagString: Untagged
@@ -52879,7 +52870,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 02cf5336f6b11124d945c8d15f1db605, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -52897,9 +52887,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 150
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -52930,6 +52920,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &3511750400189908964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332444886512078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786723470e40f034392863687e2954d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 2
 --- !u!1 &1393822431644236
 GameObject:
   m_ObjectHideFlags: 0
@@ -57708,7 +57711,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: ede2d68d246f80b47b9d281ae68b228e, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -57726,9 +57728,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 150
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -62438,7 +62440,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c04e7ee818ed4747bc01811e3f0d0d0, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -62456,9 +62457,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 151
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -67240,7 +67241,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c04e7ee818ed4747bc01811e3f0d0d0, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -67258,9 +67258,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 151
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -71961,7 +71961,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 61213168a1ae41e44a6521e73cb53347, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -71979,9 +71978,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 150
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -76691,7 +76690,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2c04e7ee818ed4747bc01811e3f0d0d0, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76709,9 +76707,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 151
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -81520,7 +81518,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: bb6edba4e0b30f14fbc98ff26985f7c9, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81538,9 +81535,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 150
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -86349,7 +86346,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 1acd4ef7cf80b054183549345547d2bd, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86367,9 +86363,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 150
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -91232,7 +91228,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: cbe46177ae5b6db44b74f45b98ea3637, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91250,9 +91245,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2027776925
+  m_SortingLayer: 7
+  m_SortingOrder: 150
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
