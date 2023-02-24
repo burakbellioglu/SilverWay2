@@ -6,12 +6,6 @@ using UnityEngine.UI;
 
 public class Interaction : MonoBehaviour
 {
-    //Amac
-    //Etkilesim
-    //Collider ile alana girdiginde animasyon calissin ve buttonlar aktif olsun
-    //Gorev veya etkilesim oldugu belli olmasi icin.
-
-    //Lambaya idle animasyonu
 
     private Animator anim;
     private GameObject player;
@@ -20,6 +14,7 @@ public class Interaction : MonoBehaviour
 
     [Header("Objeler")]
     public Button button;
+    public Button exitButton;
     public GameObject icerisi;
 
     [Header("Kameralar")]
@@ -31,8 +26,6 @@ public class Interaction : MonoBehaviour
     [Header("Hava durumu")]
     public GameObject yagmurlu;
     public GameObject hafifYagmurlu;
-
-    //Siyah ekran 2 saniue
 
 
     private void Start()
@@ -73,17 +66,21 @@ public class Interaction : MonoBehaviour
 
         player.transform.position = icerisi.transform.Find("Player_TP_Point").position;
 
-        yield return new WaitForSeconds(1);      
-        button.interactable = true;
+        //Giris butonunu kapat
         button.onClick.RemoveListener(Interact);
-        button.onClick.AddListener(InteractExit);
+        button.gameObject.SetActive(false);
+        button.interactable = true;
+
+        //Cikis butonunu ac
+        exitButton.gameObject.SetActive(true);
+        exitButton.onClick.AddListener(InteractExit);
 
     }
 
     public void InteractExit() //Cikis
     {
         //Artýk butona tiklama
-        button.interactable = false;
+        exitButton.interactable = false;
 
         StartCoroutine(InteractExit_Delay());      
     }
@@ -104,6 +101,14 @@ public class Interaction : MonoBehaviour
         player.transform.position = gameObject.transform.Find("Player_TP_Point").position;
 
         playerCamera.SetActive(true);
+
+        //Cikis butonunu kapat
+        exitButton.onClick.RemoveListener(InteractExit);
+        exitButton.gameObject.SetActive(false);
+        exitButton.interactable = true;
+
+        //Giris butonunu ac
+        button.gameObject.SetActive(true);      
     }
 
 
