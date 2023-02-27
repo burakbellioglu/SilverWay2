@@ -5,14 +5,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public float xp;
-    void Start()
-    {
-        
-    }
+    public int coin;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public class Weapon : Item
 {
     [Header("Atanacak degerler")]
     public float damage;
@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         if (collision.gameObject.CompareTag(targetTag))
         {
             collision.GetComponent<Health>().TakeDamage(damage,transform.root.position);
