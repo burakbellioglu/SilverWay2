@@ -9,22 +9,40 @@ using System;
 
 public class ProductManager : MonoBehaviour
 {
-    private PlayerStats playerStats;
     
-    [Header("Atanacak UI Objeleri")]
+    [Header("Atanacak Standart UI Objeleri")]
     public Button exitButton;
     public GameObject buy_questionPanel;
+
+    [Header("Atanacak Referanslar")]
+    public GameObject buyPanels;
 
     //Yerel degiskenler
     private GameObject selectedButton;
     //--Product bilgileri
     string _name;
     int _price;
+    GameObject product;
 
 
     private void Start()
     {
-        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStats>();
+        CheckPlayerLevel();
+    }
+
+    private void CheckPlayerLevel() //Oyuncunun leveline gore itemleri goster 
+    {
+        GameObject content = gameObject.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
+
+        for (int i = 0; i < content.transform.childCount; i++)
+        {
+            if(PlayerStats.level >= Convert.ToInt32(content.transform.GetChild(i).Find("Xp").GetChild(0).GetComponent<TextMeshProUGUI>().text))
+            {
+                content.transform.GetChild(i).GetComponent<Button>().interactable = true;
+                content.transform.GetChild(i).Find("Locked").gameObject.SetActive(false);
+            }
+            
+        }
     }
 
     #region Panel Animasyonlarý
@@ -33,6 +51,7 @@ public class ProductManager : MonoBehaviour
     {
         gameObject.transform.parent.GetComponent<Animator>().SetTrigger("Exit");
         yield return new WaitForSeconds(1);
+        buyPanels.SetActive(false);
         gameObject.SetActive(false);
     }
 
@@ -47,14 +66,14 @@ public class ProductManager : MonoBehaviour
         selectedButton.transform.Find("Selected").gameObject.SetActive(true);
 
         CloseBuyPanels();
-        gameObject.transform.Find("BuyPanels").GetChild(index).gameObject.SetActive(true);
+        buyPanels.transform.GetChild(index).gameObject.SetActive(true);
     }
 
     public void CloseBuyPanels() //Satýn alma panellerini kapat
     {
-        for (int i = 0; i < gameObject.transform.Find("BuyPanels").childCount; i++)
+        for (int i = 0; i < buyPanels.transform.childCount; i++)
         {
-            gameObject.transform.Find("BuyPanels").GetChild(i).gameObject.SetActive(false);
+            buyPanels.transform.GetChild(i).gameObject.SetActive(false);
         }
     }
 
@@ -70,12 +89,13 @@ public class ProductManager : MonoBehaviour
     public void Buy()
     {
         //Buy butonuna tiklandiginda o urunun bilgilerini al
-        GameObject product = EventSystem.current.currentSelectedGameObject.transform.parent.gameObject;
+        product = EventSystem.current.currentSelectedGameObject.transform.parent.gameObject;
 
         int price = Convert.ToInt32(product.transform.Find("Price").GetChild(0).GetComponent<TextMeshProUGUI>().text);
 
         _name = product.name;
         _price = price;
+        
 
         //Soru panelini goster
 
@@ -89,9 +109,15 @@ public class ProductManager : MonoBehaviour
 
     public void Buy_Question_Yes()
     {
-        if (_price <= playerStats.coin) //Satýn al
+        if (_price <= PlayerStats.coin) //Satýn al
         {
-            playerStats.coin -= _price;
+            PlayerStats.coin -= _price;
+            PlayerStats.WriteStats();
+
+            //Envantere o urunu ekle
+            product.GetComponent<ItemAdder>().AddInventory();
+
+            buy_questionPanel.SetActive(false);
         }
         else //Para yetersiz
         {

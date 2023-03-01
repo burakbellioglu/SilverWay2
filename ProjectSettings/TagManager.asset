@@ -13,6 +13,7 @@ TagManager:
   - Bow
   - Engel
   - Light
+  - Armor
   layers:
   - Default
   - TransparentFX

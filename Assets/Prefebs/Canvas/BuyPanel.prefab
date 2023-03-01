@@ -535,10 +535,10 @@ RectTransform:
   m_Father: {fileID: 4098403903326833172}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -118, y: 174}
-  m_SizeDelta: {x: 215.89722, y: 215.89722}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 121, y: 144}
+  m_SizeDelta: {x: 218.95, y: 215.8972}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4098403903129460026
 CanvasRenderer:
@@ -753,6 +753,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4098403903326833172}
+  - component: {fileID: 1130523879725341495}
   m_Layer: 5
   m_Name: BuyPanel
   m_TagString: Untagged
@@ -786,6 +787,19 @@ RectTransform:
   m_AnchoredPosition: {x: -2357.3, y: -135.99}
   m_SizeDelta: {x: 1246.6001, y: 801.96}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1130523879725341495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4098403903326833173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2908f3c4fe948714d82967113ec14e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _item: {fileID: 0}
 --- !u!1 &4098403903536294725
 GameObject:
   m_ObjectHideFlags: 0

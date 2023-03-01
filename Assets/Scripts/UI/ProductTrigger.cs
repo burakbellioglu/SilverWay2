@@ -13,6 +13,7 @@ public class ProductTrigger : MonoBehaviour
         {
             manager.gameObject.SetActive(true);
             manager.gameObject.transform.parent.GetComponent<Animator>().SetTrigger("Get");
+            manager.buyPanels.SetActive(true);
             manager.exitButton.interactable = false;
         }
     }

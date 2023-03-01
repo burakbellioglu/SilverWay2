@@ -23,7 +23,7 @@ public class XP : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
 
-            collision.GetComponent<PlayerStats>().xp += amount;
+            PlayerStats.xp += amount;
 
             Destroy(gameObject);
         }
