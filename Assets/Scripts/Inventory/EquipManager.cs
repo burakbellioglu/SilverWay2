@@ -22,8 +22,6 @@ public class EquipManager : MonoBehaviour
                 WeaponSlot.transform.GetChild(i).gameObject.SetActive(true);
             else
                 WeaponSlot.transform.GetChild(i).gameObject.SetActive(false);
-            Debug.Log(WeaponSlot.transform.GetChild(i).name);
-            Debug.Log(itemName);
         }
 
     }

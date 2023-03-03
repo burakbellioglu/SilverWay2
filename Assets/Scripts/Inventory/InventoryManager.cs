@@ -7,10 +7,13 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
-
+    
     public List<Item> Items = new List<Item>();
 
     public Transform ItemContent;
+    public Transform Ekipmanlar;
+
+    [Header("Item prefableri")]
     public GameObject InventoryItem;
     public GameObject InventoryWeaponItem;
     public GameObject InventoryArmorItem;

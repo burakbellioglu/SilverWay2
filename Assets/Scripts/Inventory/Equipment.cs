@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
+using TMPro;
 
 public class Equipment : MonoBehaviour
 {
@@ -36,13 +38,18 @@ public class Equipment : MonoBehaviour
         {
             EquipManager.Instance.EquipWeapon(transform.parent.name);
 
-            ////Giyilen objeyi kaldir
-            //Item _item = (Item)AssetDatabase.LoadAssetAtPath("Assets/Items/" + transform.parent.name + ".asset", typeof(Item));
+            //Giyilen objeyi kaldir
+            Item _item = (Item)AssetDatabase.LoadAssetAtPath("Assets/Items/" + transform.parent.name + ".asset", typeof(Item));
+            InventoryManager.Instance.Remove(_item);
 
-            //InventoryManager.Instance.Remove(_item);
+            //Bu objeyi silah kismina at ekipmanlarda
+            InventoryManager.Instance.Ekipmanlar.Find("Weapon").Find("Icon").GetComponent<Image>().sprite = _item.icon;
+            InventoryManager.Instance.Ekipmanlar.Find("Weapon").Find("Icon").GetComponent<Image>().color = new Color(255, 255, 255, 255);
+            InventoryManager.Instance.Ekipmanlar.Find("Weapon").Find("Name").GetComponent<TextMeshProUGUI>().text = _item.itemName;
 
-            ////Bu scripti yok et
-            //Destroy(transform.parent.gameObject);
+            //Bu objeyi yani ekipmani envanterden yok et.
+            Destroy(transform.parent.gameObject);
+
         }
         else //Zirh ise
         {
