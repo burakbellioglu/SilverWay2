@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80bbd3de2cd9cb4a984d5c6589484d4, type: 3}
+  m_Name: MuhafizAltligi
+  m_EditorClassIdentifier: 
+  itemName: "Muhaf\u0131z Altl\u0131\u011F\u0131"
+  value: 200
+  tag: Armor
+  target: Hip
+  icon: {fileID: 21300000, guid: 8496db40fd0ba8b4a86521e63046e5ad, type: 3}
+  sprite: {fileID: 21300000, guid: 8496db40fd0ba8b4a86521e63046e5ad, type: 3}
+  feature: 20

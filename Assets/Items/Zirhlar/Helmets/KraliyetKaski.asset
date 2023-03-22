@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b80bbd3de2cd9cb4a984d5c6589484d4, type: 3}
+  m_Name: KraliyetKaski
+  m_EditorClassIdentifier: 
+  itemName: "Kraliyet Kask\u0131"
+  value: 0
+  tag: Armor
+  target: Helmet
+  icon: {fileID: 21300000, guid: 6e174d7ae2ffd0a42b289465ff3e6919, type: 3}
+  sprite: {fileID: 21300000, guid: 85aad13026cbea244b5f944e542848b3, type: 3}
+  feature: 22

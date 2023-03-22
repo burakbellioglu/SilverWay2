@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class Item : ScriptableObject
 {
-    public int id;
     public string itemName;
     public int value;
     public string tag;
+    public string target;
     public Sprite icon;
+    public Sprite sprite;
+    public int feature;
 }
 

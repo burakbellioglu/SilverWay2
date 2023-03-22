@@ -14,6 +14,7 @@ TagManager:
   - Engel
   - Light
   - Armor
+  - Item
   layers:
   - Default
   - TransparentFX

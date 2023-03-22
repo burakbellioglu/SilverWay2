@@ -131,6 +131,7 @@ public class Interaction : MonoBehaviour
             //Animasyonlar Child
             anim.SetBool("Active", false);
             button.interactable = false;
+            button.onClick.RemoveListener(Interact);
 
             StopAllCoroutines();
         }

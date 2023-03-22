@@ -27,10 +27,11 @@ public class ProductManager : MonoBehaviour
 
     private void Start()
     {
-        CheckPlayerLevel();
+        if(gameObject.name == "SilahUstasi")
+            CheckPlayerLevel_Silahci();
     }
 
-    private void CheckPlayerLevel() //Oyuncunun leveline gore itemleri goster 
+    private void CheckPlayerLevel_Silahci() //Oyuncunun leveline gore itemleri goster 
     {
         GameObject content = gameObject.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
 
@@ -66,6 +67,7 @@ public class ProductManager : MonoBehaviour
         selectedButton.transform.Find("Selected").gameObject.SetActive(true);
 
         CloseBuyPanels();
+
         buyPanels.transform.GetChild(index).gameObject.SetActive(true);
     }
 
@@ -86,6 +88,30 @@ public class ProductManager : MonoBehaviour
     }
     #endregion
 
+
+    #region Zirh Ustasi Ozel
+
+    public void GetProductsScroll(GameObject category) //Kategoriue basildiginda o kategoriyi ac ve xp kontrolu yap
+    {
+        GameObject content = category.transform.GetChild(0).GetChild(0).gameObject;
+
+        for (int i = 0; i < content.transform.childCount; i++)
+        {
+            if (PlayerStats.level >= Convert.ToInt32(content.transform.GetChild(i).Find("Xp").GetChild(0).GetComponent<TextMeshProUGUI>().text))
+            {
+                content.transform.GetChild(i).GetComponent<Button>().interactable = true;
+                content.transform.GetChild(i).Find("Locked").gameObject.SetActive(false);
+            }
+
+        }
+
+        category.SetActive(true);
+    }
+
+    #endregion
+
+
+    #region Satin alma islemleri
     public void Buy()
     {
         //Buy butonuna tiklandiginda o urunun bilgilerini al
@@ -95,7 +121,7 @@ public class ProductManager : MonoBehaviour
 
         _name = product.name;
         _price = price;
-        
+
 
         //Soru panelini goster
 
@@ -105,7 +131,6 @@ public class ProductManager : MonoBehaviour
 
         buy_questionPanel.SetActive(true);
     }
-
 
     public void Buy_Question_Yes()
     {
@@ -133,5 +158,6 @@ public class ProductManager : MonoBehaviour
 
         buy_questionPanel.transform.GetChild(0).GetChild(1).GetComponent<Button>().onClick.RemoveAllListeners();
     }
+    #endregion
 
 }
