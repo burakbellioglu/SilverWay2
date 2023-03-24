@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: ff16c9e7a23c55f498f5c900ce0c4b98
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Kozuka Gothic Pro
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1da1ac8ce8b3cc44ab85f7a8444b3db4, type: 3}
+  - {fileID: 12800000, guid: c104cf26ea8d13343a23b79b810f8665, type: 3}
+  - {fileID: 12800000, guid: d13cc2562136e3e4ea7adf090251a440, type: 3}
+  - {fileID: 12800000, guid: 30d4ed755136a2b4981c188e9735d039, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
